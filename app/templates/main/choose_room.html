@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Choose Room{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Select a Room</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <div class="mb-3">
+            {{ form.roomid.label(class="form-label") }}
+            {{ form.roomid(class="form-select") }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+{% endblock %}

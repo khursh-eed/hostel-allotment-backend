@@ -1,0 +1,39 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ user.name }}!</h1>
+    <p>Your email: {{ user.email }}</p>
+    <p>This is your dashboard. You can add info like your room allotment here later.</p>
+
+    <a href="{{ url_for('auth.logout') }}">Logout</a>
+</body>
+</html> -->
+
+
+
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>Welcome, {{ user.name }}!</h2>
+  <p>You are logged in as <strong>{{ user.email }}</strong>.</p>
+  
+</div>
+
+<div class="container mt-4">
+    <ul class="mt-4 list-group">
+        <li class="list-group-item"><a href="{{ url_for('main.update_profile') }}">Update Profile</a></li>
+        <li class="list-group-item"><a href="{{ url_for('main.uploadreceipt') }}">Upload Fee Receipt</a></li>
+        <li class="list-group-item"><a href="{{ url_for('main.choose_room') }}">Choose Room</a></li>
+    </ul>
+    <a href="{{ url_for('auth.logout') }}" class="btn btn-danger mt-3">Logout</a>
+</div>
+{% endblock %}
+
+
+
+

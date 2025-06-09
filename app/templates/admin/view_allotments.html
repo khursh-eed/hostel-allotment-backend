@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}View Allotments{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Hostel Room Allotments</h2>
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Room No.</th>
+                <th>Floor</th>
+                <th>Hostel</th>
+                <th>Program</th>
+                <th>Branch</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in allotments %}
+            <tr>
+                <td>{{ row.student_id }}</td>
+                <td>{{ row.name }}</td>
+                <td>{{ row.room_number }}</td>
+                <td>{{ row.floor }}</td>
+                <td>{{ row.hostel_name }}</td>
+                <td>{{ row.program }}</td>
+                <td>{{ row.branch }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

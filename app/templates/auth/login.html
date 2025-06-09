@@ -1,0 +1,27 @@
+
+
+
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>Login</h2>
+  <form method="POST">
+    {{ form.hidden_tag() }}  <!-- includes CSRF token -->
+    
+    {{ form.email.label }}   <!-- <label>Email</label> -->
+    {{ form.email(class="form-control") }}  <!-- <input type="text"> -->
+
+    {{ form.password.label }}
+    {{ form.password(class="form-control") }}
+
+
+
+    {{ form.submit(class="btn btn-primary") }} <!-- <button>Login</button> -->
+</form>
+
+</div>
+{% endblock %}
+
+

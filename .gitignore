@@ -1,0 +1,7 @@
+hostelroom/
+__pycache__/
+*.pyc
+.env
+instance/
+.mypy_cache/
+*.db

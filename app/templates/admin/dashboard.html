@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Welcome, Admin</h2>
+
+    <h4 class="mt-4">Students Pending Verification</h4>
+    {% if students %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Branch</th>
+                <th>Category</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.email }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.branch }}</td>
+                <td>{{ student.category }}</td>
+                <td>
+                    <form action="{{ url_for('admin.verify_student', user_id=student.id) }}" method="POST">
+                        <button class="btn btn-success btn-sm" type="submit">Verify</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No students waiting for verification.</p>
+    {% endif %}
+
+    <hr>
+
+    <a href="{{ url_for('admin.view_students') }}" class="btn btn-primary">View All Students</a>
+    <a href="{{ url_for('admin.view_allotments') }}" class="btn btn-secondary">View Allotments</a>
+</div>
+{% endblock %}
