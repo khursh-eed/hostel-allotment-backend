@@ -17,7 +17,7 @@ def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'super-secret-key'  # change later
     # protects data
-    app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://root:Khursh%402005@127.0.0.1:3306/hostel_system"
+    app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql+psycopg2://neondb_owner:npg_K0UkTDRtPzu4@ep-old-bird-a1fuvqls-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require"
 
     app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'app', 'static', 'uploads')
 
